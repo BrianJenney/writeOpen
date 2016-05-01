@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Write Open</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+   
+    <link href="justified-nav.css" rel="stylesheet">
+     <script type="text/javascript" src="spin.min.js"></script>
+		 <script type="text/javascript" src="ladda.min.js"></script>
+		 <link rel="stylesheet" type="text/css" href="ladda-themeless.min.css">
+    
+  </head>
+
+  <style>
+
+    body{
+      padding: 0;
+    }
+
+    .jumbotron{
+      background-color: white; 
+      color: #36454F;
+      margin-bottom: 0 !important;
+      height: ;
+
+    }
+
+    #features, #overview{
+      text-align: center;
+    }
+
+
+
+  #features .col-md-3 {
+    border: 1px solid #808080;
+    height: 300px;
+    background-color: #36454F;
+    display: none;
+    margin: 2%;
+    color: white;
+  }
+
+  </style>
+
+
+   <body ng-controller="HomeCtrl">
+
+   <header>
+     <div class="jumbotron">
+       <h1 style="display: none">writeOpen</h1>
+     </div>
+   </header>
+   <!-- Background pic -->
+   <div style="background-image: url('home/books.jpg');
+height: 400px; background-size: contain;" class="container-fluid main-pic">
+   </div>
+  <!--  -->
+
+  <section id="features">
+    <div class="row">
+    <h2>A place for you to write...</h2>
+    <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <h3><b>1. Sign Up</b></h3>
+        <p>Create an account, login and start writing. It's that simple.</p>
+        
+      </div>
+      <div class="col-md-3">
+        <h3><b>2. Write!</b></h3>
+        <p>This is the place to get your name out. Write a short story and publish it for the world to see.</p>
+      </div>
+      <div class="col-md-3">
+        <h3><b>3. Read and Vote!</b></h3>
+        <p>Read others' short stories, and upvote the ones you like. The top 5 from each month will be published as an ebook.</p>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <div style="text-align: center">
+     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Start Writing!</button>
+  </div>
+ 
+
+  <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div id="myModal" class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Join Write Open</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-signin" name="signinForm" role="form">
+        <div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" ng-model="user.email">
+        <p class="help-block" ng-show="signinForm.email.$invalid">Enter a valid email.</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="3">
+        <p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 8 characters.</p>
+    </div>  
+        <label class="checkbox">
+          <a id="signUp" href="#/register"> Sign Up</a>
+        </label>
+        <button ladda-loading="login.loading" data-style="expand-right" ng-disabled="!user.email || !user.password" type="button" ng-click="SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label" data-dismiss="modal">Sign In</span></button>
+
+      </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <script type="text/javascript">
+  $("#signUp").click(function(){
+    $('#myModal').modal('hide');
+  })
+
+  $(".jumbotron h1").fadeIn(5000);
+
+  $("#features .col-md-3").fadeIn(5000);
+  </script>
+ 
+
+</body></html>

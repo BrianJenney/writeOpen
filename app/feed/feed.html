@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>writeOpen</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+
+    <style>
+      .likes{
+       border-radius: 50%;
+       background-color: lightblue;
+       color: white; 
+       border: 1px solid transparent;
+      }
+
+      .container.readPost {
+      position: fixed;
+      margin-top: -25%;
+      border-radius: 2%;
+      z-index: -9999;
+      }
+    </style>
+    
+  </head>
+
+  <body ng-controller="FeedCtrl">
+
+   <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="#/welcome">Home</a>
+          <a class="blog-nav-item " href="#/addPost">Write</a>
+          <a class="blog-nav-item active" href="#/feed">Read</a>
+          <a class="blog-nav-item " style="cursor:pointer;" ng-click="logout();">Logout</a>
+        </nav>
+      </div>
+    </div>
+   <div class="container">
+      <div class="page-header">
+        <h1>writeOpen</h1>
+      </div>
+
+  <div class="posts" ng-repeat="article in articles">            
+      <h2><a href="" ng-click="read(article.$id)">{{article.title}}</a></h2>
+      <p>{{article.summary}}</p>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <button class="likes" ng-click="plusOne(article.$id)">+</button>
+        </div>
+        <div class="col-md-4">
+          <h3>{{ article.likes }}</h3>
+        </div>
+        <div class="col-md-4">
+          
+        </div>
+        
+      </div>
+
+               
+  </div>
+
+  <div style="border: 3px solid gray; height: auto; opacity: 0;background-color: lightgray" class="container readPost">
+  <button ng-click="closeMe()" class="close" style="color: blue">x</button>
+  <textarea style="height: 500px; width: 100%; ">
+    {{post.post}}
+  </textarea>
+    
+  </div>
+
+     
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"></p>
+      </div>
+    </footer>
+
+</body></html>
