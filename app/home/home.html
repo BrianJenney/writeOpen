@@ -20,6 +20,11 @@
       padding: 0;
     }
 
+    .glyphicon{
+      font-size: 300%;
+      margin-top: 10%;
+    }
+
     .jumbotron{
       background-color: white; 
       color: #36454F;
@@ -46,13 +51,14 @@
   </style>
 
 
-   <body ng-controller="HomeCtrl">
+   
 
    <header>
      <div class="jumbotron">
        <h1 style="display: none">writeOpen</h1>
      </div>
    </header>
+   <body ng-controller="HomeCtrl">
    <!-- Background pic -->
    <div style="background-image: url('home/books.jpg');
 height: 400px; background-size: contain;" class="container-fluid main-pic">
@@ -66,15 +72,18 @@ height: 400px; background-size: contain;" class="container-fluid main-pic">
       <div class="col-md-3">
         <h3><b>1. Sign Up</b></h3>
         <p>Create an account, login and start writing. It's that simple.</p>
+        <span style="color:white" class="glyphicon glyphicon-user"></span>
         
       </div>
       <div class="col-md-3">
         <h3><b>2. Write!</b></h3>
         <p>This is the place to get your name out. Write a short story and publish it for the world to see.</p>
+        <span style="color:white"class="glyphicon glyphicon-pencil"></span>
       </div>
       <div class="col-md-3">
         <h3><b>3. Read and Vote!</b></h3>
         <p>Read others' short stories, and upvote the ones you like. The top 5 from each month will be published as an ebook.</p>
+        <span style="color:white" class="glyphicon glyphicon-book"></span>
         
       </div>
       

@@ -23,7 +23,7 @@
     </div>
    <div class="container">
       <div class="page-header">
-        <h1>writeOpen</h1>
+        <h1 style="text-align: center; font-family: monospace;">writeOpen</h1>
       </div>
 
       <h4 ng-show= "articles.length < 1">Write some stories and they will appear here!</h4>
@@ -33,8 +33,8 @@
         <p class="list-group-item-text">{{article.post}}</p>
  
         <span class="pull-right">
-      <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
-      <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal" >DELETE</button>
+      <button style="background-color: royalblue;" class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
+      <button style="background-color: red;" class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal" >DELETE</button>
     </span>
     </a>
 </div>

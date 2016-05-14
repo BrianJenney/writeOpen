@@ -26,8 +26,6 @@ angular.module('myApp.addPost', ['ngRoute'])
     $scope.AddPost = function(){
 	login.loading = true;
 
-    $scope.article.picture = "";
-
 	var title = $scope.article.title;
     var post = $scope.article.post;
     var summary = $scope.article.summary;
@@ -66,7 +64,7 @@ angular.module('myApp.addPost', ['ngRoute'])
 	
 
 
-	fb.$push({title: title, post: post, saved: "true", '.priority': user, likes: 0, dislikes: 0}).then(function(ref) {
+	fb.$push({title: title, post: post, saved: "true", '.priority': user, likes: 0, dislikes: 0, comments: "", commenter:""}).then(function(ref) {
 		login.loading = false;
 		$location.path('/feed');
 	}, function(error) {
