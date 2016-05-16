@@ -39,7 +39,7 @@ angular.module('myApp.addPost', ['ngRoute'])
 	
 
 
-	fb.$push({title: title, post: post,'.priority': user, likes: 0, summary: summary}).then(function(ref) {
+	fb.$push({title: title, post: post,'.priority': user, likes: 0, summary: summary, saved: "false"}).then(function(ref) {
 		login.loading = false;
 		$location.path('/feed');
 	}, function(error) {
@@ -54,6 +54,7 @@ angular.module('myApp.addPost', ['ngRoute'])
 
 	var title = $scope.article.title;
     var post = $scope.article.post;
+    var summary = $scope.article.summary;
     
 	
 	var firebaseObj = new Firebase("https://writesource.firebaseio.com/Articles/");
@@ -64,7 +65,7 @@ angular.module('myApp.addPost', ['ngRoute'])
 	
 
 
-	fb.$push({title: title, post: post, saved: "true", '.priority': user, likes: 0, dislikes: 0, comments: "", commenter:""}).then(function(ref) {
+	fb.$push({title: title, post: post,'.priority': user, likes: 0, summary: summary, saved: "true"}).then(function(ref) {
 		login.loading = false;
 		$location.path('/feed');
 	}, function(error) {

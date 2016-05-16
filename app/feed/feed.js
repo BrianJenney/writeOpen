@@ -100,10 +100,17 @@ angular.module('myApp.feed', ['ngRoute'])
     }
 
     //like functionality - adds +1 each time button clicked
+    
+
     $scope.plusOne = function(id) {
         var fb = new Firebase("https://writesource.firebaseio.com/Articles/" + id);
- 
-
+        
+        //prevents from liking more than once
+        $('.likeButton').click(function(){
+        console.log("clicked")
+        $(this).css({"opacity":"0"})
+        })
+        
         var syn = $firebase(fb);
         var likes = syn.$asArray();
         likes.$loaded(function(likes){
@@ -114,6 +121,7 @@ angular.module('myApp.feed', ['ngRoute'])
         console.log(likes[0].$value)
         var firebaseObj = new Firebase("https://writesource.firebaseio.com/Articles/" + id);
         var article = $firebase(firebaseObj);
+
 
 
         article.$update({
@@ -129,8 +137,11 @@ angular.module('myApp.feed', ['ngRoute'])
         console.log(syn)
 
         console.log(id);
-        $scope.isDisabled = true;
 
+        
     }
 
+
+
 }]);
+

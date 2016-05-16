@@ -27,25 +27,25 @@
       </div>
 
       <h4 ng-show= "articles.length < 1">Write some stories and they will appear here!</h4>
-     <div class="list-group" ng-repeat="article in articles">
-    <a href="#" onclick="return false;" class="list-group-item active">
-        <h4 class="list-group-item-heading">{{article.title}}</h4>
-        <p class="list-group-item-text">{{article.post}}</p>
- 
-        <span class="pull-right">
-      <button style="background-color: royalblue;" class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
-      <button style="background-color: red;" class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal" >DELETE</button>
-    </span>
-    </a>
+        <div class="row" ng-repeat="article in articles">
+          <div class="stories" style="text-align: center">
+            <h4 class="list-group-item-heading">{{article.title}}</h4>
+            <p class="list-group-item-text">{{article.summary}}</p>
+
+          <button style="background-color: royalblue;" class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
+          <button style="background-color: red;" class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal" >DELETE</button>
+          </div>
+          <hr>
+        </div>    
 </div>
 
 
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div style="Width:150%; margin-left: -25%"class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="editModalLabel">Update Post</h4>
+        <h4 class="modal-title" id="editModalLabel">Update Story</h4>
       </div>
       <div class="modal-body">
         <form role="form">
@@ -54,14 +54,19 @@
             <input type="text" class="form-control" ng-model="postToUpdate.title" id="recipient-name">
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">Post:</label>
-            <textarea class="form-control" id="message-text" ng-model="postToUpdate.post"></textarea>
+            <label for="recipient-name" class="control-label">Summary:</label>
+            <input type="text" class="form-control" ng-model="postToUpdate.summary" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Story:</label>
+            <textarea rows="50" class="form-control" id="message-text" ng-model="postToUpdate.post"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" ng-click="update()">Publish</button>
+        <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
       </div>
     </div>
   </div>
@@ -73,7 +78,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="text-align:center;">
-        <h4 class="modal-title" style="color:red;" id="deleteModalLabel">You are going to Delete this post forever !!</h4>
+        <h4 class="modal-title" style="color:red;" id="deleteModalLabel">You are going to Delete this story forever!</h4>
       </div>
      
       <div class="modal-footer">

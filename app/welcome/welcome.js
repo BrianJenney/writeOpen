@@ -49,7 +49,8 @@ angular.module('myApp.welcome', ['ngRoute'])
         article.$update({
             title: $scope.postToUpdate.title,
             post: $scope.postToUpdate.post,
-            emailId: $scope.postToUpdate.emailId
+            summary: $scope.postToUpdate.summary,
+            saved: 'false'
         }).then(function(ref) {
             console.log(ref.key()); // bar
             $('#editModal').modal('hide')
@@ -57,6 +58,23 @@ angular.module('myApp.welcome', ['ngRoute'])
             console.log("Error:", error);
         });
 
+    }
+
+    $scope.save = function(){
+        console.log($scope.postToUpdate.$id);
+        var fb = new Firebase("https://writesource.firebaseio.com/Articles/" + $scope.postToUpdate.$id);
+        var article = $firebase(fb);
+        article.$update({
+            title: $scope.postToUpdate.title,
+            post: $scope.postToUpdate.post,
+            summary: $scope.postToUpdate.summary,
+            saved: 'true'
+        }).then(function(ref) {
+            console.log(ref.key()); // bar
+            $('#editModal').modal('hide')
+        }, function(error) {
+            console.log("Error:", error);
+        });
     }
 
 
