@@ -13,6 +13,10 @@
     "shelljs": "^0.2.6",
     "karma-junit-reporter": "^0.2.2"
   },
+  "engines": {
+     "node": "0.10.x",
+     "npm": "1.3.x"
+   },
   "scripts": {
     "postinstall": "bower install",
 
