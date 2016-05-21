@@ -32,6 +32,9 @@ angular.module('myApp.feed', ['ngRoute'])
         console.log($scope.postToComment);
 
         $('.writeComment').css({"opacity":"1","z-index":"999"})
+
+        $('.posts').css({"opacity":"0"})
+
         console.log("Done")
     }
 
@@ -52,6 +55,8 @@ angular.module('myApp.feed', ['ngRoute'])
 
         $('.writeComment').css({"opacity":"0","z-index":"-1"})
 
+        $('.posts').css({"opacity":"1"})
+
     }
 
     //read comments by syncing comments as array
@@ -65,17 +70,23 @@ angular.module('myApp.feed', ['ngRoute'])
 
         $('.readComment').css({"opacity":"1","z-index":"999"})
 
+        $('.posts').css({"opacity":"0"})
+
     }
 
 
     //close comment box
     $scope.closeWriteComment = function(){
         $('.writeComment').css({"opacity":"0","z-index":"-1"})
+
+        $('.posts').css({"opacity":"1"})
     }
 
     //close reading comments
     $scope.closeReadComment = function(){
        $('.readComment').css({"opacity":"0","z-index":"-1"})
+
+       $('.posts').css({"opacity":"1"})
     }
 
 

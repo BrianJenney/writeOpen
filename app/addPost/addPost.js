@@ -36,7 +36,7 @@ angular.module('myApp.addPost', ['ngRoute'])
    	var fb = $firebase(firebaseObj);
         
 	var user = CommonProp.getUser();
-	
+	console.log("published")
 
 
 	fb.$push({title: title, post: post,'.priority': user, likes: 0, summary: summary, saved: "false"}).then(function(ref) {
@@ -62,6 +62,8 @@ angular.module('myApp.addPost', ['ngRoute'])
    	var fb = $firebase(firebaseObj);
         
 	var user = CommonProp.getUser();
+
+	console.log("saved")
 	
 
 
