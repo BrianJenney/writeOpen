@@ -96,7 +96,10 @@
   
     <button ng-click="closeReadComment()" class="close" style="color: blue; font-family: sans-serif; margin-right: 2%;">x</button>
     <div style="width: 100%; border: 1px solid lightgray ">
+
+      <li ng-show="!comments.length">No Comments Yet...</li>
       <div ng-repeat="comment in comments">
+
         <li style="list-style: none"> - {{comment.commenter}}</li>
         <li style="list-style: none" >{{comment.comment}}</li>
         <hr> 

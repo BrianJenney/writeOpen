@@ -65,7 +65,8 @@ angular.module('myApp.feed', ['ngRoute'])
         console.log(fb)
 
         var sync = $firebase(fb)
-        $scope.comments = sync.$asObject();
+        $scope.comments = sync.$asArray();
+
         console.log($scope.comments);
 
         $('.readComment').css({"opacity":"1","z-index":"999"})
