@@ -135,7 +135,6 @@ angular.module('myApp.feed', ['ngRoute'])
         var article = $firebase(firebaseObj);
 
 
-
         article.$update({
             likes: thisLikes + 1
         }).then(function(ref) {
@@ -143,7 +142,6 @@ angular.module('myApp.feed', ['ngRoute'])
         }, function(error) {
             console.log("Error:", error);
         });
-
 
         })
         console.log(syn)
