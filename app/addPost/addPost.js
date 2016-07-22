@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.addPost', ['ngRoute'])
+angular.module('myApp.addPost', ['ngRoute','ngDialog'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/addPost', {
@@ -9,7 +9,7 @@ angular.module('myApp.addPost', ['ngRoute'])
   });
 }])
 
-.controller('AddPostCtrl', ['$scope','$firebase','$location','CommonProp',function($scope,$firebase,$location,CommonProp) {
+.controller('AddPostCtrl', ['$scope','ngDialog','$firebase','$location','CommonProp',function($scope, ngDialog, $firebase,$location,CommonProp) {
      
 	if(!CommonProp.getUser()){
     $location.path('/home');
